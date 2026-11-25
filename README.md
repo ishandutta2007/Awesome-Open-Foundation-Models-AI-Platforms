@@ -73,61 +73,61 @@ Self-hosted, community-driven runtimes, servers, and deployment frameworks for r
 
 Sorted in descending order by GitHub stargazers count:
 
-### 1. 🦙 [Ollama](https://github.com/ollama/ollama) [![GitHub stars](https://img.shields.io/github/stars/ollama/ollama?style=social&color=white)](https://github.com/ollama/ollama/stargazers)
+### 1. 🦙 [Ollama](https://github.com/ollama/ollama) [![GitHub_Stars](https://img.shields.io/github/stars/ollama/ollama?style=social&color=white)](https://github.com/ollama/ollama/stargazers)
 * **Repository:** [ollama/ollama](https://github.com/ollama/ollama) 📁
 * **Stack:** Go / C++ (llama.cpp) | **License:** MIT 📜
 * **Overview:** The most popular tool for getting started with local models. Offers single-command downloads, automatic GPU hardware acceleration (macOS Metal, CUDA, ROCm), and an OpenAI-compatible REST API.
 * **Best for:** Developers and local workstations seeking quick setup and zero configuration for running models like Llama 3, Mistral, and DeepSeek locally.
 
-### 2. ⚡ [llama.cpp](https://github.com/ggml-org/llama.cpp) [![GitHub stars](https://img.shields.io/github/stars/ggml-org/llama.cpp?style=social&color=white)](https://github.com/ggml-org/llama.cpp/stargazers)
+### 2. ⚡ [llama.cpp](https://github.com/ggml-org/llama.cpp) [![GitHub_Stars](https://img.shields.io/github/stars/ggml-org/llama.cpp?style=social&color=white)](https://github.com/ggml-org/llama.cpp/stargazers)
 * **Repository:** [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) 📁
 * **Stack:** C / C++ | **License:** MIT 📜
 * **Overview:** The cornerstone C/C++ inference implementation for LLMs with zero dependencies. Defines the modern GGUF format and provides 2-bit through 8-bit integer quantization for CPU, Apple Silicon, and commodity GPUs.
 * **Best for:** Resource-constrained devices, edge deployments, and cross-platform native execution.
 
-### 3. 🚀 [vLLM](https://github.com/vllm-project/vllm) [![GitHub stars](https://img.shields.io/github/stars/vllm-project/vllm?style=social&color=white)](https://github.com/vllm-project/vllm/stargazers)
+### 3. 🚀 [vLLM](https://github.com/vllm-project/vllm) [![GitHub_Stars](https://img.shields.io/github/stars/vllm-project/vllm?style=social&color=white)](https://github.com/vllm-project/vllm/stargazers)
 * **Repository:** [vllm-project/vllm](https://github.com/vllm-project/vllm) 📁
 * **Stack:** Python / CUDA / C++ | **License:** Apache-2.0 📜
 * **Overview:** High-throughput, production-grade LLM inference and serving library. Introduced PagedAttention to eliminate memory fragmentation in KV-caches, continuous batching, and chunked prefill.
 * **Best for:** High-concurrency enterprise serving on NVIDIA/AMD clusters and powering backend API services.
 
-### 4. 🏭 [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) [![GitHub stars](https://img.shields.io/github/stars/hiyouga/LLaMA-Factory?style=social&color=white)](https://github.com/hiyouga/LLaMA-Factory/stargazers)
+### 4. 🏭 [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) [![GitHub_Stars](https://img.shields.io/github/stars/hiyouga/LLaMA-Factory?style=social&color=white)](https://github.com/hiyouga/LLaMA-Factory/stargazers)
 * **Repository:** [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) 📁
 * **Stack:** Python / PyTorch | **License:** Apache-2.0 📜
 * **Overview:** Unified, web-UI-enabled fine-tuning and inference framework supporting 100+ foundation models with LoRA, QLoRA, DPO, ORPO, and PPO training pipelines.
 * **Best for:** Rapid fine-tuning, alignment, and local serving of foundation models through an intuitive visual interface or CLI.
 
-### 5. 🏠 [LocalAI](https://github.com/mudler/LocalAI) [![GitHub stars](https://img.shields.io/github/stars/mudler/LocalAI?style=social&color=white)](https://github.com/mudler/LocalAI/stargazers)
+### 5. 🏠 [LocalAI](https://github.com/mudler/LocalAI) [![GitHub_Stars](https://img.shields.io/github/stars/mudler/LocalAI?style=social&color=white)](https://github.com/mudler/LocalAI/stargazers)
 * **Repository:** [mudler/LocalAI](https://github.com/mudler/LocalAI) 📁
 * **Stack:** Go / C++ / Multi-backend | **License:** MIT 📜
 * **Overview:** Drop-in, self-hosted replacement REST API compatible with OpenAI API specifications. Supports multi-modal capabilities including text generation, audio transcription, image generation, and embeddings.
 * **Best for:** Self-hosted multi-modal AI infrastructure requiring a single unified endpoint without third-party vendor lock-in.
 
-### 6. 🏎️ [SGLang](https://github.com/sgl-project/sglang) [![GitHub stars](https://img.shields.io/github/stars/sgl-project/sglang?style=social&color=white)](https://github.com/sgl-project/sglang/stargazers)
+### 6. 🏎️ [SGLang](https://github.com/sgl-project/sglang) [![GitHub_Stars](https://img.shields.io/github/stars/sgl-project/sglang?style=social&color=white)](https://github.com/sgl-project/sglang/stargazers)
 * **Repository:** [sgl-project/sglang](https://github.com/sgl-project/sglang) 📁
 * **Stack:** Python / CUDA / C++ | **License:** Apache-2.0 📜
 * **Overview:** Fast execution engine and domain-specific language for LLMs and vision-language models. Features RadixAttention for automatic KV cache reuse across complex multi-turn and constrained decoding flows.
 * **Best for:** Structured JSON output, multi-call agent workflows, and ultra-high-performance server-side inference.
 
-### 7. 🟢 [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) [![GitHub stars](https://img.shields.io/github/stars/NVIDIA/TensorRT-LLM?style=social&color=white)](https://github.com/NVIDIA/TensorRT-LLM/stargazers)
+### 7. 🟢 [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) [![GitHub_Stars](https://img.shields.io/github/stars/NVIDIA/TensorRT-LLM?style=social&color=white)](https://github.com/NVIDIA/TensorRT-LLM/stargazers)
 * **Repository:** [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) 📁
 * **Stack:** C++ / Python / CUDA | **License:** Apache-2.0 📜
 * **Overview:** NVIDIA’s premier library for compiling and maximizing inference performance on NVIDIA GPUs (Hopper, Blackwell, Ada Lovelace), using kernel fusion, in-flight batching, and FP8/FP4 acceleration.
 * **Best for:** Maximum hardware saturation and lowest latency on dedicated NVIDIA datacenter infrastructure.
 
-### 8. 🦎 [Axolotl](https://github.com/axolotl-ai-cloud/axolotl) [![GitHub stars](https://img.shields.io/github/stars/axolotl-ai-cloud/axolotl?style=social&color=white)](https://github.com/axolotl-ai-cloud/axolotl/stargazers)
+### 8. 🦎 [Axolotl](https://github.com/axolotl-ai-cloud/axolotl) [![GitHub_Stars](https://img.shields.io/github/stars/axolotl-ai-cloud/axolotl?style=social&color=white)](https://github.com/axolotl-ai-cloud/axolotl/stargazers)
 * **Repository:** [axolotl-ai-cloud/axolotl](https://github.com/axolotl-ai-cloud/axolotl) 📁
 * **Stack:** Python / PyTorch | **License:** Apache-2.0 📜
 * **Overview:** Streamlined tool for fine-tuning open foundation models (Llama, Mistral, Qwen, Gemma) across multi-GPU environments using FlashAttention, DeepSpeed, and FSDP.
 * **Best for:** Post-training, alignment, and parameter-efficient fine-tuning on enterprise compute clusters.
 
-### 9. 🤗 [Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) [![GitHub stars](https://img.shields.io/github/stars/huggingface/text-generation-inference?style=social&color=white)](https://github.com/huggingface/text-generation-inference/stargazers)
+### 9. 🤗 [Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) [![GitHub_Stars](https://img.shields.io/github/stars/huggingface/text-generation-inference?style=social&color=white)](https://github.com/huggingface/text-generation-inference/stargazers)
 * **Repository:** [huggingface/text-generation-inference](https://github.com/huggingface/text-generation-inference) 📁
 * **Stack:** Rust / Python / CUDA | **License:** Apache-2.0 📜
 * **Overview:** Hugging Face’s purpose-built toolkit for deploying and serving open LLMs in production. Features Tensor Parallelism, token streaming, watermarking, and optimized tokenizers.
 * **Best for:** Turnkey production deployments tightly integrated with the Hugging Face Hub ecosystem.
 
-### 10. 🔄 [Xinference](https://github.com/xorbitsai/inference) [![GitHub stars](https://img.shields.io/github/stars/xorbitsai/inference?style=social&color=white)](https://github.com/xorbitsai/inference/stargazers)
+### 10. 🔄 [Xinference](https://github.com/xorbitsai/inference) [![GitHub_Stars](https://img.shields.io/github/stars/xorbitsai/inference?style=social&color=white)](https://github.com/xorbitsai/inference/stargazers)
 * **Repository:** [xorbitsai/inference](https://github.com/xorbitsai/inference) 📁
 * **Stack:** Python / C++ | **License:** Apache-2.0 📜
 * **Overview:** Powerful distributed inference engine supporting LLMs, speech recognition, multimodal models, and rerankers with multi-engine backends (vLLM, llama.cpp, Transformers).

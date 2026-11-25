@@ -1,144 +1,150 @@
-# Awesome-Open-Foundation-Models-AI-Platforms
-
 # Awesome Open Foundation Models & AI Platforms
 
-> A curated list of top Open Foundation Models and AI Platforms — both SaaS/Hosted commercial inference and model-hosting services and open-source alternatives for running, serving, and experimenting with foundation models on your own infrastructure.
-> 🌟 Star this repo if you find it useful! 🌟
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
+
+A curated list of top **Open Foundation Models and AI Platforms** — covering hosted commercial API inference providers, enterprise neoclouds, and high-performance open-source engines for serving, fine-tuning, and running foundation models on your own infrastructure.
+
+Whether deploying large language models (LLMs), multimodal vision-language models (VLMs), or embedding models in production or experimenting locally on workstations, this guide outlines ecosystem benchmarks, pricing tiers, free quotas, and self-hosted tools.
 
 ---
 
 ## 📋 Table of Contents
 
-- [SaaS / Hosted Platforms](#-saas--hosted-platforms)
-  - [Hugging Face Hub](#hugging-face-hub)
-  - [Replicate](#replicate)
-  - [Together AI](#together-ai)
-  - [Fireworks AI](#fireworks-ai)
-  - [Groq Cloud](#groq-cloud)
-  - [DeepInfra](#deepinfra)
-  - [Mistral Platform](#mistral-platform)
-  - [Lepton AI (NVIDIA DGX Cloud)](#lepton-ai-nvidia-dgx-cloud)
-  - [Anyscale](#anyscale)
-  - [OctoAI](#octoai)
-- [Open-Source Software](#-open-source-software)
-  - [vLLM](#vllm)
-  - [Ollama](#ollama)
-  - [LocalAI](#localai)
+- [📈 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [🟦 Hosted SaaS AI Inference & Foundation Model Platforms](#-hosted-saas-ai-inference--foundation-model-platforms)
+- [🟩 Open-Source Inference & Foundation Model Engines](#-open-source-inference--foundation-model-engines)
+- [📊 Comparison at a Glance](#-comparison-at-a-glance)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
-## 🟦 SaaS / Hosted Platforms
+## 📈 Sector Overview & Market Dynamics
 
-Commercial, cloud-hosted model hubs and inference platforms. These are not open-source but are included as reference points for feature comparison.
+The global foundation model and AI inference market is projected to expand from **~$25B–$110B in 2024–2025 to over $310B–$520B by the 2030s** at an estimated **CAGR of ~18%–31%**, as production enterprise budgets rotate rapidly from capital-intensive model pre-training to operational real-time token inference and agentic workflows.
 
-### Hugging Face Hub
-**Type:** Central model, dataset, and demo hosting platform
-Hugging Face Hub is the default destination for open foundation models, hosting models, datasets, and Spaces (demo apps) with Git-based collaboration and community discovery [citation:1]. Paid plans include PRO at **$9/month**, Team at **$20/user/month**, and Enterprise at **$50/user/month**, with storage priced per TB (public repos $12/TB/mo, private $18/TB/mo, with volume discounts). Spaces hardware ranges from a free CPU Basic tier to GPU instances starting at **$0.40/hour** for a small Nvidia T4 [citation:1].  
-**Best for:** Teams wanting the largest catalog of open models and datasets with community tooling, accepting that compute for hosted demos is billed separately.
-
-### Replicate
-**Type:** Pay-per-second model inference API
-Replicate runs thousands of open-source models (Llama, Stable Diffusion, Whisper, and custom models) via a simple API, handling GPU provisioning and scaling automatically [citation:2][citation:13]. Pricing is **pay-per-second** based on hardware requirements (roughly $0.0002–$0.01/sec), with no subscription and a **$25 free credit** for new accounts [citation:2]. **Trade-off:** No free tier for ongoing use, and costs can accumulate for sustained workloads [citation:13].  
-**Best for:** Developers wanting on-demand access to a broad model catalog without managing any infrastructure.
-
-### Together AI
-**Type:** Serverless and dedicated inference platform
-Together AI offers serverless inference (best-effort) alongside **Dedicated Endpoints** (reserved GPUs billed per-minute) and **Provisioned Throughput** (token-based reserved capacity with a 99% uptime SLA) [citation:3][citation:14]. Dedicated hardware includes H100 at **$5.40/hour**, H200 at **$6.60/hour**, and B200 at **$9.00/hour** [citation:3]. Provisioned Throughput is priced at **$0.05 per PTU per minute**, with full utilization yielding roughly $0.36/M input and $2.16/M output tokens on MiniMax M3 [citation:14].  
-**Best for:** Teams needing predictable production capacity for open models with an SLA, accepting the complexity of choosing between serverless, dedicated, and provisioned form factors.
-
-### Fireworks AI
-**Type:** Serverless inference platform
-Fireworks AI provides serverless inference for open models with a focus on speed and production reliability [citation:4]. It competes directly with Together AI and Replicate on throughput and latency for open-weight models.  
-**Best for:** Teams wanting fast serverless inference for popular open models without reserved capacity commitments.
-
-### Groq Cloud
-**Type:** Ultra-low-latency inference on custom LPU hardware
-Groq Cloud runs open models on its custom Language Processing Unit (LPU) hardware, with published speeds and per-token pricing. Production model pricing includes **$0.15 input / $0.60 output per 1M tokens** for one model and **$0.075 input / $0.30 output** for a smaller model, with rate limits on the Developer plan [citation:7].  
-**Best for:** Latency-sensitive applications where token generation speed is the primary constraint.
-
-### DeepInfra
-**Type:** Token-based serverless and GPU-hour private inference
-DeepInfra offers shared serverless inference (pay per token) and **Private Models** on dedicated GPUs with autoscaling from zero [citation:8]. GPU options span A100 through B300 (Blackwell Ultra). Private deployments bill **per GPU-hour** regardless of traffic, with a warning that an unattended 2-GPU deployment over a weekend costs roughly **$256** [citation:8].  
-**Best for:** Teams needing custom weights or compliance isolation, accepting the cost discipline required for always-on GPU deployments.
-
-### Mistral Platform
-**Type:** First-party platform for Mistral models
-Mistral's platform provides access to its own model family (Mistral Medium, Mistral Large, OCR, Voxtral) with a free tier and paid plans. **Pro is $14.99/month**, **Team is $24.99/user/month**, and **Company is custom** [citation:9]. API pricing is per million tokens (e.g., Mistral Large at **$2/M input, $6/M output**), with a **50% batch discount** [citation:9].  
-**Best for:** Teams standardized on Mistral models wanting a first-party platform rather than a third-party aggregator.
-
-### Lepton AI (NVIDIA DGX Cloud)
-**Type:** Serverless inference on NVIDIA DGX Cloud
-Lepton AI was acquired by NVIDIA and rebranded as **NVIDIA DGX Cloud Lepton** in 2026, running serverless inference on DGX infrastructure with an OpenAI-compatible API [citation:10]. The model catalog is currently small (one production model listed), with pricing at **$0.80/M input tokens** for Llama 3.3 70B [citation:10].  
-**Best for:** Enterprises wanting NVIDIA-backed infrastructure and SLAs for serverless open-model inference, accepting a narrower model selection.
-
-### Anyscale
-**Type:** Managed Ray platform for distributed AI workloads
-Anyscale is the company behind **Ray**, the open-source distributed computing framework used by OpenAI, Uber, and Spotify [citation:6]. Its platform provides managed Ray clusters for distributed training, batch inference, and model serving. It is described as **super complex and technical**, with pay-as-you-go pricing and no monthly fees [citation:6].  
-**Best for:** Teams needing to scale AI workloads across many GPUs with Ray, accepting significant technical complexity.
-
-### OctoAI
-**Type:** Inference platform with free starting credit
-OctoAI offers pay-for-what-you-use inference with **$10 of free credit** for new signups, positioning itself on low latency and cost savings from its optimization expertise [citation:5].  
-**Best for:** Teams wanting to evaluate an inference provider with minimal upfront commitment.
+The sector exhibits a distinct two-layer market structure:
+- **Foundational Compute & Proprietary Model Layer (Moderately to Highly Concentrated):** Capital requirements create an oligopolistic tier dominated by hyperscalers, custom-silicon chipmakers, and leading labs (NVIDIA, OpenAI, Anthropic, Google).
+- **Inference Serving & Application Orchestration Layer (Highly Fragmented):** Fierce competition thrives across open-weight model serving, serverless API providers, specialized routing gateways, and local runtime software where margins and latency optimizations drive developer choice.
 
 ---
 
-## 🟩 Open-Source Software
+## 🟦 Hosted SaaS AI Inference & Foundation Model Platforms
 
-Self-hosted, community-driven tools for running and serving foundation models on your own infrastructure.
+The table below covers prominent hosted platforms and API inference services for open foundation models (e.g., Llama 3, DeepSeek, Mistral, Qwen), sorted in descending order by company scale (valuation / market capitalization / revenue metrics).
 
-### vLLM
-**Stack:** Python / CUDA | **License:** Apache-2.0
-vLLM is the leading open-source **high-throughput LLM inference and serving engine**, listed among the healthiest LLM API gateway and local inference projects with a Linux Foundation health score of **79/100** [citation:11]. It is the de facto standard for self-hosted production inference, powering many commercial inference platforms behind the scenes.  
-**Best for:** Teams wanting maximum throughput and efficient GPU utilization for self-hosted LLM serving, accepting the operational overhead of managing GPU infrastructure.
+| Platform | Company Scale (Valuation / Revenue) | Starting Paid Pricing | Free Tier Limits / Free Trial | Key Capabilities & Highlights |
+|:---|:---|:---|:---|:---|
+| **[Groq Cloud](https://groq.com/)** | **$20.0B** valuation deal *(~$6.9B Series E / $90M+ rev)* | **$0.075 / 1M input**, **$0.30 / 1M output** tokens (on-demand LPU) | **Free forever plan**: 30 RPM, 1,000 RPD, 8,000 TPM, 200,000 TPD (per organization, no credit card required) | Ultra-fast token throughput using custom Language Processing Unit (LPU) silicon architectures. |
+| **[Fireworks AI](https://fireworks.ai/)** | **$17.5B** valuation *(Series D / $305M+ ARR)* | **$0.10 / 1M input**, **$0.20 / 1M output** tokens (serverless) | **$1.00 free starting trial credit** upon sign-up (no credit card required; pay-as-you-go top-up afterwards) | Enterprise serverless model inference optimized for low latency and custom LoRA adapter serving. |
+| **[Mistral Platform](https://mistral.ai/)** | **$14.0B** valuation *(~€11.7B Series C / $310M+ ARR)* | **$14.99/month** (Pro plan) or **$0.15 / 1M input**, **$0.45 / 1M output** tokens | **Free Mode forever plan**: Capped at 1 RPS (Request Per Second) across shared organization limits | First-party managed platform, fine-tuning, and APIs for Mistral model families (Large, NeMo, Codestral, Pixtral). |
+| **[Hugging Face Hub](https://huggingface.co/)** | **$4.5B** valuation *(Series D / $80M+ ARR)* | **$9.00/month** (PRO tier) or **$0.40/GPU-hour** (Spaces Nvidia T4) | **Free forever tier**: Unlimited public repos, 2 ZeroGPU Spaces (T4), and basic serverless inference credits (~$0.10/month) | Central hub for open-source AI weights, datasets, benchmarks, and interactive Spaces demos. |
+| **[Together AI](https://together.ai/)** | **$3.3B** valuation *(Series B / $50M+ ARR)* | **$0.10 / 1M input**, **$0.10 / 1M output** tokens (minimum $15 initial deposit) | **No standing free tier**; $15 initial deposit required to activate console (Startups eligible for $15k–$50k grant credits) | Serverless, Dedicated Endpoints, and Provisioned Throughput with 99% uptime SLAs for open-weight models. |
+| **[Anyscale](https://www.anyscale.com/)** | **$1.1B** valuation *(~$100M ARR; acquired by Nscale)* | **$1.00 per cluster-hour** platform fee + raw cloud compute usage | **$100 free trial usage credit** for new accounts (Startup program offers up to $20,000 in compute credits) | Distributed compute platform built on Ray for distributed model training, fine-tuning, and batch inference. |
+| **[Replicate](https://replicate.com/)** | **$350M** valuation *(Series B; acquired by Cloudflare)* | **$0.0002 to $0.01 per second** (hardware-based pay-per-second billing) | **$25 free introductory trial credit** upon initial account registration | Simple HTTP API for thousands of open models (text, image, audio) with auto-scaling down to zero. |
+| **[Lepton AI (NVIDIA DGX Cloud)](https://www.lepton.ai/)** | **~$200M+** exit *(acquired by NVIDIA for nine figures)* | **$0.80 / 1M input**, **$0.80 / 1M output** tokens (Llama 3.3 70B) | **Free basic developer tier**: Includes complimentary sandbox testing credits and access to serverless testing endpoints | Production AI cloud infrastructure and serverless inference powered by NVIDIA DGX hardware. |
+| **[OctoAI](https://octoai.cloud/)** | **$165M** exit *(acquired by NVIDIA)* | **$0.10 / 1M tokens** starting tier (pay-as-you-go inference) | **$10 free usage credit** for new account sign-ups | Turnkey compute and inference platform focused on optimized model execution and latency tuning. |
+| **[DeepInfra](https://deepinfra.com/)** | **$136M+** raised *(Series B / $100M+ ARR)* | **$0.05 / 1M input**, **$0.10 / 1M output** tokens or **$0.55/GPU-hour** | **Free tier forever**: Free weekly inference allowance on select Flash models (reset every Monday) with GitHub account | Cost-effective token-based serverless inference and dedicated GPU instances with zero-scale elasticity. |
 
-### Ollama
-**Stack:** Go / llama.cpp | **License:** MIT
-Ollama provides the simplest path to running LLMs locally, with a single-binary installation, a model library, and an OpenAI-compatible API. It is listed with a Linux Foundation health score of **72/100** and **21,737** activity metric [citation:11]. It is the default choice for local development and experimentation with open models.  
-**Best for:** Developers wanting to run models locally on laptops or workstations with minimal setup, accepting lower throughput than production serving engines.
+---
 
-### LocalAI
-**Stack:** Go / llama.cpp / multiple backends | **License:** MIT
-LocalAI is an open-source **OpenAI-compatible API** that runs models locally across multiple backends, supporting text generation, image generation, audio transcription, and embeddings. It is listed with a health score of **65/100** and **2,167** activity metric [citation:11].  
-**Best for:** Teams wanting a unified local API surface across multiple model types (text, image, audio) without cloud dependencies.
+## 🟩 Open-Source Inference & Foundation Model Engines
+
+Self-hosted, community-driven runtimes, servers, and deployment frameworks for running open foundation models on personal machines, on-premise clusters, or private cloud infrastructure.
+
+Sorted in descending order by GitHub stargazers count:
+
+### 1. [Ollama](https://github.com/ollama/ollama) [![GitHub stars](https://img.shields.io/github/stars/ollama/ollama?style=social&color=white)](https://github.com/ollama/ollama/stargazers)
+* **Repository:** [ollama/ollama](https://github.com/ollama/ollama)
+* **Stack:** Go / C++ (llama.cpp) | **License:** MIT
+* **Overview:** The most popular tool for getting started with local models. Offers single-command downloads, automatic GPU hardware acceleration (macOS Metal, CUDA, ROCm), and an OpenAI-compatible REST API.
+* **Best for:** Developers and local workstations seeking quick setup and zero configuration for running models like Llama 3, Mistral, and DeepSeek locally.
+
+### 2. [llama.cpp](https://github.com/ggml-org/llama.cpp) [![GitHub stars](https://img.shields.io/github/stars/ggml-org/llama.cpp?style=social&color=white)](https://github.com/ggml-org/llama.cpp/stargazers)
+* **Repository:** [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp)
+* **Stack:** C / C++ | **License:** MIT
+* **Overview:** The cornerstone C/C++ inference implementation for LLMs with zero dependencies. Defines the modern GGUF format and provides 2-bit through 8-bit integer quantization for CPU, Apple Silicon, and commodity GPUs.
+* **Best for:** Resource-constrained devices, edge deployments, and cross-platform native execution.
+
+### 3. [vLLM](https://github.com/vllm-project/vllm) [![GitHub stars](https://img.shields.io/github/stars/vllm-project/vllm?style=social&color=white)](https://github.com/vllm-project/vllm/stargazers)
+* **Repository:** [vllm-project/vllm](https://github.com/vllm-project/vllm)
+* **Stack:** Python / CUDA / C++ | **License:** Apache-2.0
+* **Overview:** High-throughput, production-grade LLM inference and serving library. Introduced PagedAttention to eliminate memory fragmentation in KV-caches, continuous batching, and chunked prefill.
+* **Best for:** High-concurrency enterprise serving on NVIDIA/AMD clusters and powering backend API services.
+
+### 4. [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) [![GitHub stars](https://img.shields.io/github/stars/hiyouga/LLaMA-Factory?style=social&color=white)](https://github.com/hiyouga/LLaMA-Factory/stargazers)
+* **Repository:** [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
+* **Stack:** Python / PyTorch | **License:** Apache-2.0
+* **Overview:** Unified, web-UI-enabled fine-tuning and inference framework supporting 100+ foundation models with LoRA, QLoRA, DPO, ORPO, and PPO training pipelines.
+* **Best for:** Rapid fine-tuning, alignment, and local serving of foundation models through an intuitive visual interface or CLI.
+
+### 5. [LocalAI](https://github.com/mudler/LocalAI) [![GitHub stars](https://img.shields.io/github/stars/mudler/LocalAI?style=social&color=white)](https://github.com/mudler/LocalAI/stargazers)
+* **Repository:** [mudler/LocalAI](https://github.com/mudler/LocalAI)
+* **Stack:** Go / C++ / Multi-backend | **License:** MIT
+* **Overview:** Drop-in, self-hosted replacement REST API compatible with OpenAI API specifications. Supports multi-modal capabilities including text generation, audio transcription, image generation, and embeddings.
+* **Best for:** Self-hosted multi-modal AI infrastructure requiring a single unified endpoint without third-party vendor lock-in.
+
+### 6. [SGLang](https://github.com/sgl-project/sglang) [![GitHub stars](https://img.shields.io/github/stars/sgl-project/sglang?style=social&color=white)](https://github.com/sgl-project/sglang/stargazers)
+* **Repository:** [sgl-project/sglang](https://github.com/sgl-project/sglang)
+* **Stack:** Python / CUDA / C++ | **License:** Apache-2.0
+* **Overview:** Fast execution engine and domain-specific language for LLMs and vision-language models. Features RadixAttention for automatic KV cache reuse across complex multi-turn and constrained decoding flows.
+* **Best for:** Structured JSON output, multi-call agent workflows, and ultra-high-performance server-side inference.
+
+### 7. [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) [![GitHub stars](https://img.shields.io/github/stars/NVIDIA/TensorRT-LLM?style=social&color=white)](https://github.com/NVIDIA/TensorRT-LLM/stargazers)
+* **Repository:** [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
+* **Stack:** C++ / Python / CUDA | **License:** Apache-2.0
+* **Overview:** NVIDIA’s premier library for compiling and maximizing inference performance on NVIDIA GPUs (Hopper, Blackwell, Ada Lovelace), using kernel fusion, in-flight batching, and FP8/FP4 acceleration.
+* **Best for:** Maximum hardware saturation and lowest latency on dedicated NVIDIA datacenter infrastructure.
+
+### 8. [Axolotl](https://github.com/axolotl-ai-cloud/axolotl) [![GitHub stars](https://img.shields.io/github/stars/axolotl-ai-cloud/axolotl?style=social&color=white)](https://github.com/axolotl-ai-cloud/axolotl/stargazers)
+* **Repository:** [axolotl-ai-cloud/axolotl](https://github.com/axolotl-ai-cloud/axolotl)
+* **Stack:** Python / PyTorch | **License:** Apache-2.0
+* **Overview:** Streamlined tool for fine-tuning open foundation models (Llama, Mistral, Qwen, Gemma) across multi-GPU environments using FlashAttention, DeepSpeed, and FSDP.
+* **Best for:** Post-training, alignment, and parameter-efficient fine-tuning on enterprise compute clusters.
+
+### 9. [Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) [![GitHub stars](https://img.shields.io/github/stars/huggingface/text-generation-inference?style=social&color=white)](https://github.com/huggingface/text-generation-inference/stargazers)
+* **Repository:** [huggingface/text-generation-inference](https://github.com/huggingface/text-generation-inference)
+* **Stack:** Rust / Python / CUDA | **License:** Apache-2.0
+* **Overview:** Hugging Face’s purpose-built toolkit for deploying and serving open LLMs in production. Features Tensor Parallelism, token streaming, watermarking, and optimized tokenizers.
+* **Best for:** Turnkey production deployments tightly integrated with the Hugging Face Hub ecosystem.
+
+### 10. [Xinference](https://github.com/xorbitsai/inference) [![GitHub stars](https://img.shields.io/github/stars/xorbitsai/inference?style=social&color=white)](https://github.com/xorbitsai/inference/stargazers)
+* **Repository:** [xorbitsai/inference](https://github.com/xorbitsai/inference)
+* **Stack:** Python / C++ | **License:** Apache-2.0
+* **Overview:** Powerful distributed inference engine supporting LLMs, speech recognition, multimodal models, and rerankers with multi-engine backends (vLLM, llama.cpp, Transformers).
+* **Best for:** Cluster orchestration of diverse AI workloads across heterogeneous hardware.
 
 ---
 
 ## 📊 Comparison at a Glance
 
-| Software | License | Type | Pricing Model | Self-Hosted | Best For |
-|----------|---------|------|---------------|-------------|----------|
-| **Hugging Face Hub** | Proprietary | Model hub + Spaces | Per-user + per-TB + GPU-hour | ❌ | Model discovery + demo hosting |
-| **Replicate** | Proprietary | Inference API | Pay-per-second | ❌ | Broad catalog, no infra |
-| **Together AI** | Proprietary | Inference platform | Serverless / dedicated / PTU | ❌ | Predictable production capacity |
-| **Groq Cloud** | Proprietary | Inference (LPU) | Per-token | ❌ | Ultra-low latency |
-| **DeepInfra** | Proprietary | Inference platform | Per-token / GPU-hour | ❌ | Custom weights + compliance |
-| **Mistral Platform** | Proprietary | First-party models | Per-token + subscription | ❌ | Mistral model users |
-| **vLLM** | Apache-2.0 | Inference engine | N/A (self-hosted) | ✅ | High-throughput self-hosting |
-| **Ollama** | MIT | Local inference | N/A (self-hosted) | ✅ | Local development |
-| **LocalAI** | MIT | Local OpenAI API | N/A (self-hosted) | ✅ | Multi-modal local API |
+| Solution | Deployment Model | Primary Focus | Best For |
+|:---|:---|:---|:---|
+| **Ollama** | Self-Hosted / Local | Local runtime & developer CLI | Rapid local prototyping on consumer hardware |
+| **llama.cpp** | Self-Hosted / Embedded | Quantized CPU & edge inference | Resource-constrained systems and native integration |
+| **vLLM** | Self-Hosted / Cloud | Production high-concurrency serving | Enterprise serving clusters requiring peak throughput |
+| **SGLang** | Self-Hosted / Cloud | Structured generation & prompt caching | Complex agent workflows with branching prompts |
+| **TensorRT-LLM** | Self-Hosted / Datacenter | NVIDIA-optimized kernel execution | Maximum utilization on dedicated NVIDIA GPUs |
+| **Groq Cloud** | Hosted SaaS / API | Hardware-accelerated LPU inference | Ultra-low latency requirements and real-time voice/chat |
+| **Together AI** | Hosted SaaS / Dedicated | Serverless & dedicated model endpoints | Production SLAs without infrastructure maintenance |
+| **Fireworks AI** | Hosted SaaS / API | Low-latency serverless serving | High-speed production model execution |
+| **Hugging Face Hub** | Hosted SaaS / Hub | Model repository & demo hosting | Discovery, community benchmarks, and sharing weights |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you know of an open-source foundation model platform or inference tool that should be listed here, please open a pull request with:
+Contributions are warmly welcome! If you know of an open-source foundation model platform, inference engine, or serving framework that belongs on this list:
 
-- Project name and URL
-- Brief description (1–2 sentences)
-- Stack and license
-- Why it stands out
-
-Please ensure the project is actively maintained (releases within the last 12 months) and genuinely open-source.
-
-**Note on the ecosystem:** The open-model inference landscape splits between **managed platforms** that abstract GPU management (Hugging Face Hub for discovery and hosting, Replicate for on-demand inference, Together AI for production SLAs, Groq for latency) and **self-hosted engines** that give full control (vLLM for high-throughput serving, Ollama for local development, LocalAI for multi-modal local APIs). **Hugging Face Hub** is the gravitational center for open models and datasets [citation:1]. **Together AI** offers the most complete range of production form factors (serverless, dedicated, provisioned throughput with SLA) [citation:3][citation:14]. **vLLM** is the strongest self-hosted option for teams with GPU infrastructure, while **Ollama** is the best starting point for local experimentation [citation:11].
+1. Fork this repository.
+2. Add your suggested project to the appropriate section with complete metadata.
+3. Ensure the project is actively maintained and has open documentation.
+4. Submit a descriptive pull request.
 
 ---
 
 ## 📄 License
 
-This list is released under CC0 1.0 Universal (Public Domain). The software projects listed retain their respective licenses.
-
----
-
-⭐ **If this list helped you discover a useful tool, please star the repo!** ⭐
+This repository is distributed under the [CC0 1.0 Universal (Public Domain)](LICENSE) license. Listed individual platforms and open-source software libraries remain subject to their respective licenses.
